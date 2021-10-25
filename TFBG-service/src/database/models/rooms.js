@@ -1,0 +1,14 @@
+import userSchema from /user
+import gameSchema from /games
+const mongoose = require('mongoose')
+
+const RoomSchema = new mongoose.Schema({
+    id: String,
+    roomOwner: userSchema.name,
+    participants: userSchema.name[],
+    description: String,
+    game: gameSchema.name,
+    scheduleDate: Date,
+    joinRequest: Array
+})
+mongoose.model("rooms", RoomSchema);
