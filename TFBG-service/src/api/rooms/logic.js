@@ -1,4 +1,4 @@
-const database = require('./databse')
+const database = require('./database')
 
 module.exports = {
     getAll: (options) => {

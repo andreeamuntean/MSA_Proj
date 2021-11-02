@@ -16,15 +16,18 @@ const usersSchema = mongoose.Schema({
     hashPass: String,
     phone: String,
     gamesPlayed: [
-        { type: Schema.Types.ObjectId, ref: DATABASE.COLLECTIONS.GAMES }
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: DATABASE.COLLECTIONS.GAMES
+        }
     ],
     rooms: [
         {
-            type: Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: DATABASE.COLLECTIONS.USERS
         }
     ],
-    avatarImage: URL
+    avatarImage: String
 })
 
 usersSchema.pre('save', function (next) {

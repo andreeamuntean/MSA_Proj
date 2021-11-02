@@ -8,5 +8,10 @@ module.exports = {
         },
         URL: 'mongodb://localhost/TFBG'
     },
-    SALT_ROUNDS: 10
+    SALT_ROUNDS: 10,
+    INVALID_PASSWORD: 'Invalid password',
+    INVALID_EMAIL: 'Invalid email',
+    JWT: {
+        SECRET: 'ad78312njk&^#nkb()(djlk1256~!$#&^(*)32'
+    }
 }
