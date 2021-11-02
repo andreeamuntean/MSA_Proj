@@ -1,17 +1,28 @@
-import UserSchema from '.\users'
-import gameSchema from '.\games'
-
 const mongoose = require('mongoose')
+const CONSTANTS = require('../../utils/constants')
 
-const RoomSchema = new mongoose.Schema({
+const { Schema } = mongoose
+
+const RoomSchema = Schema({
     id: String,
-    roomOwner: userSchema.name,
-    participants: userSchema.name[],
+    roomOwner: {
+        type: Schema.Types.ObjectId,
+        ref: CONSTANTS.DATABASE.COLLECTIONS.USERS
+    },
+    participants: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: CONSTANTS.DATABASE.COLLECTIONS.USERS
+        }
+    ],
     description: String,
-    game: gameSchema.name,
+    game: {
+        type: Schema.Types.ObjectId,
+        ref: CONSTANTS.DATABASE.COLLECTIONS.GAMES
+    },
     scheduleDate: Date,
     joinRequest: Array
 })
 
-mongoose.model("rooms", RoomSchema);
-module.exports = ("rooms", RoomSchema);
+const Rooms = mongoose.model(CONSTANTS.DATABASE.COLLECTIONS.ROOMS, RoomSchema)
+module.exports = Rooms
