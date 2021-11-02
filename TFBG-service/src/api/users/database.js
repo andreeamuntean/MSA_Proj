@@ -17,5 +17,4 @@ module.exports = {
     update: (id, user) => User.findByIdAndUpdate(id, user).lean().exec(),
     delete: (id) => User.findByIdAndDelete(id),
     count: () => User.count().lean().exec(),
-    getByEmail: (email) => User.findOne({ email: email }).lean().exec()
 }
