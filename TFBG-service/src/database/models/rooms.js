@@ -12,8 +12,6 @@ const RoomSchema = new mongoose.Schema({
     scheduleDate: Date,
     joinRequest: Array
 })
-<<<<<<< HEAD
-mongoose.model("rooms", RoomSchema);
-=======
+
 mongoose.model("rooms", RoomSchema);
 module.exports = ("rooms", RoomSchema);
