@@ -1,5 +1,6 @@
-import userSchema from /user
-import gameSchema from /games
+import UserSchema from '.\users'
+import gameSchema from '.\games'
+
 const mongoose = require('mongoose')
 
 const RoomSchema = new mongoose.Schema({
@@ -11,4 +12,8 @@ const RoomSchema = new mongoose.Schema({
     scheduleDate: Date,
     joinRequest: Array
 })
+<<<<<<< HEAD
 mongoose.model("rooms", RoomSchema);
+=======
+mongoose.model("rooms", RoomSchema);
+module.exports = ("rooms", RoomSchema);
