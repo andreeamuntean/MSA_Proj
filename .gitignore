@@ -26,6 +26,9 @@ dist/
 # JetBrains IDE
 .idea/
 
+.expo/
+.expo-shared/
+
 # Unit test reports
 TEST*.xml
 
