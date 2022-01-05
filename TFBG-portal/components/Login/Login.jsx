@@ -1,5 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import {
+  StyledContainer,
+  InnerContainer,
+  PageLogo,
+  PageTitle,
+} from "./styles.js";
+
 import Image from "../../assets/splash.png";
 
 const Login = () => {
