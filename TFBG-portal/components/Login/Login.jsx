@@ -5,17 +5,28 @@ import {
   InnerContainer,
   PageLogo,
   PageTitle,
-} from "./styles.js";
+} from "./../styles";
 
 import Image from "../../assets/splash.png";
 
+// const Login = () => {
+//   return (
+//     <View style={styles.container}>
+//       <Image source={Image} />
+//       <Text>Login</Text>
+//       {/* <StatusBar style="auto" /> */}
+//     </View>
+//   );
+// };
+
 const Login = () => {
   return (
-    <View style={styles.container}>
-      <Image source={Image} />
-      <Text>Login</Text>
-      {/* <StatusBar style="auto" /> */}
-    </View>
+    <StyledContainer>
+      <InnerContainer>
+        <PageLogo source={require("./../../assets/logo.png")}></PageLogo>
+        <PageTitle>TFGB</PageTitle>
+      </InnerContainer>
+    </StyledContainer>
   );
 };
 
