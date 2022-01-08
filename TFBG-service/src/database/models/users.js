@@ -9,11 +9,9 @@ bcrypt.compare = utils.promisify(bcrypt.compare)
 const { SALT_ROUNDS, DATABASE } = require('../../utils/constants')
 
 const usersSchema = mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    username: String,
+    name: String,
     email: String,
-    hashPass: String,
+    password: String,
     phone: String,
     gamesPlayed: [
         {

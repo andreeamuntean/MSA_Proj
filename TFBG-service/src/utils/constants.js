@@ -13,5 +13,6 @@ module.exports = {
     INVALID_EMAIL: 'Invalid email',
     JWT: {
         SECRET: 'ad78312njk&^#nkb()(djlk1256~!$#&^(*)32'
-    }
+    },
+    ORIGIN: 'http://localhost:3000'
 }
