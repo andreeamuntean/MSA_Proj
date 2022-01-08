@@ -8,12 +8,14 @@ import { createBrowserHistory } from "history";
 
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
+import FirstPage from "./components/FirstPage/FirstPage";
 
 const Routing = () => {
   return (
     <Router history={createBrowserHistory()}>
       <div className="container bx--grid">
         <Switch>
+          <Route exact path="/" component={FirstPage} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
         </Switch>
