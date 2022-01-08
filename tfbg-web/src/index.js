@@ -1,20 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "../src/styles/app.scss";
+import "../src/styles/index.scss";
 
 import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
-import SignUpForm from "./components/sign-up/SignUpForm";
-import LoginForm from "./components/login/LoginForm";
+import Register from "./components/Register/Register";
+import Login from "./components/Login/Login";
 
 const Routing = () => {
   return (
     <Router history={createBrowserHistory()}>
-      <Switch>
-        <Route exact path="/login" component={LoginForm} />
-        <Route exact path="/sign-up" component={SignUpForm} />
-      </Switch>
+      <div className="container bx--grid">
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+        </Switch>
+      </div>
     </Router>
   );
 };

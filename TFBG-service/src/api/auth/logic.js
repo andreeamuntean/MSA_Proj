@@ -11,8 +11,8 @@ const bcrypt = require('bcrypt')
 module.exports = {
     login: async (email, password) => {
         let user = await userLogic.getByEmail(email)
-
-        if (!user) {
+        console.log(user)
+        if (!user.length) {
             let error = new Error(INVALID_EMAIL)
             error.status = StatusCodes.NOT_FOUND
 
@@ -25,7 +25,7 @@ module.exports = {
             let error = new Error(INVALID_PASSWORD)
             error.status = StatusCodes.NOT_ACCEPTABLE
 
-            return error
+            throw error
         }
 
         let token = jwt.sign(
