@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./../login-register.css";
+import "./sign-up.css";
 
 const SignUpForm = (prop) => {
   const [fields, setFields] = useState({
@@ -29,7 +29,10 @@ const SignUpForm = (prop) => {
 
   return (
     <div className="formCenter">
-      <form className="formFields" onSubmit={handleSubmit}>
+      <div className="formTitle">
+        <h1 color="white">Don’t have an account ? Create one !</h1>
+      </div>
+      <form className="formField" onSubmit={handleSubmit}>
         <div className="formField">
           <label className="formFieldLabel" htmlFor="name">
             Full Name
@@ -44,20 +47,7 @@ const SignUpForm = (prop) => {
             onChange={handleChange}
           />
         </div>
-        <div className="formField">
-          <label className="formFieldLabel" htmlFor="password">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            className="formFieldInput"
-            placeholder="Enter your password"
-            name="password"
-            value={fields.password.value}
-            onChange={handleChange}
-          />
-        </div>
+
         <div className="formField">
           <label className="formFieldLabel" htmlFor="email">
             E-Mail Address
@@ -69,6 +59,21 @@ const SignUpForm = (prop) => {
             placeholder="Enter your email"
             name="email"
             value={fields.email.value}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="formField">
+          <label className="formFieldLabel" htmlFor="password">
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            className="formFieldInput"
+            placeholder="Enter your password"
+            name="password"
+            value={fields.password.value}
             onChange={handleChange}
           />
         </div>

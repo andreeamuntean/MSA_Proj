@@ -1,54 +1,3 @@
-.App {
-    height: 100vh;
-    display: flex;
-    color: white;
-}
-
-.appAside {
-    width: 50%;
-    background-color: #d7d5dd;
-}
-
-.appForm {
-    width: 50%;
-    background-color: #12130f;
-    padding: 25px 40px;
-    overflow: auto;
-}
-
-.pageSwitcher {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10%;
-}
-
-.pageSwitcherItem {
-    background-color: #40434e;
-    color: #9da6b1;
-    padding: 10px 25px;
-    cursor: pointer;
-    font-size: 0.9em;
-    border: none;
-    outline: none;
-    display: inline-block;
-    text-decoration: none;
-}
-
-.pageSwitcherItem-active {
-    background-color: #1d0b49;
-    color: white;
-}
-
-.pageSwitcherItem:first-child {
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-}
-
-.pageSwitcherItem:last-child {
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-}
-
 .logo {
     /* width: 50px;
     height: 50px; */
@@ -59,8 +8,8 @@
     margin-bottom: 0px;
     margin-top: 0px;
     background-color: #c8bbe9;
-    border-radius: 15px;
-    padding: 50px 90px;
+    /* border-radius: 15px; */
+    /* padding: 50px 90px; */
 }
 
 .formTitle {
@@ -88,12 +37,18 @@
 }
 
 .formField {
-    margin-bottom: 60px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+    /* margin-right: 0px;
+    margin-left: 0px;
+    padding-right: 50px;*/
 }
 
 .formFieldLabel {
     display: inline;
     text-transform: uppercase;
+    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.1em;
     color: rgb(8, 14, 49);
@@ -101,21 +56,30 @@
 }
 
 .formFieldInput {
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    color: white;
+    /* width: 100%; */
+    background-color: #ffcdcd;
+    /* border: none;
+    color: white; */
+    width: 290px;
+    height: 40px;
+    /* text-align: center; */
     outline: none;
     border-bottom: 1px solid #445366;
     font-size: 1.2em;
     font-weight: 300;
     padding-bottom: 3px;
-    margin-top: 20px;
+    margin-top: 10px;
+    /* margin-right: 500px; */
+    padding-right: 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    /* align-content: center; */
 }
 
-.formFieldInput::placeholder {
+
+/* .formFieldInput::placeholder {
     color: #616e7f;
-}
+} */
 
 .formFieldButton {
     background-color: #6c6288;

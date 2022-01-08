@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 //import "./../../App.css";
-import "./../login-register.css";
+import "./login.css";
 
 const LoginForm = (prop) => {
   const [fields, setFields] = useState({

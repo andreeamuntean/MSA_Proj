@@ -19,10 +19,16 @@ code {
 }
 
 body {
-    background-color: #6b5b95;
+    /* background-color: #6b5b95;
     text-align: center;
     /* margin: 500; */
-    padding: 0;
+    /*padding: 0;*/
+    position: relative;
+    /* width: 428px; */
+    /* height: 914px; */
+    background-color: #bebff8;
+    /* background-blend-mode: luminosity; */
+    /* mix-blend-mode: difference; */
 }
 
 .mr-20 {
