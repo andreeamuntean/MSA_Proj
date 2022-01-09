@@ -7,6 +7,7 @@ import logo from "../../files/logo.png";
 import { TextInput, Button, Loading } from "carbon-components-react";
 import { Controller, useForm } from "react-hook-form";
 import validator from "validator";
+import { useHistory } from "react-router-dom";
 
 import API from "../../helpers/api";
 import toast from "../../helpers/toast";
@@ -29,6 +30,13 @@ const Register = (props) => {
     });
   };
 
+  const history = useHistory();
+
+  const routeChangeFirst = () => {
+    let path = "/";
+    history.push(path);
+  };
+
   const isEmpty = (value) => {
     if (validator.isEmpty(value || "")) return "Information is required";
     return true;
@@ -38,7 +46,12 @@ const Register = (props) => {
   return (
     <div className={styles.container}>
       <div className={` bx--row`}>
-        <img className={styles.image} src={logo} alt={logo} />
+        <img
+          className={styles.image}
+          src={logo}
+          alt={logo}
+          onClick={routeChangeFirst}
+        />
       </div>
       <div className={`${styles.input} bx--row`}>
         <Controller
@@ -86,6 +99,7 @@ const Register = (props) => {
           control={control}
           render={({ field: { onChange } }) => (
             <TextInput
+              type="password"
               onChange={onChange}
               id="login_password"
               placeholder="Password ..."
