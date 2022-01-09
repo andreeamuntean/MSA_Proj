@@ -4,39 +4,45 @@
 // here we have global styles and overrides
 html,
 body {
-    margin: 0px;
-    min-height: 100%;
-    min-width: 100%;
+  margin: 0px;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.toast-container {
+  position: fixed;
+  right: $spacing-06;
+  bottom: $spacing-06;
 }
 
 .container {
-    background-color: #6b5b95;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
+  background-color: #6b5b95;
+  min-height: 100%;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 .bx--text-input {
-    font-size: 1.25rem !important;
-    font-weight: 600 !important;
-    border-radius: 25px;
-    color: #747474 !important;
-    background-color: #ffcdcd !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  border-radius: 25px;
+  color: #747474 !important;
+  background-color: #ffcdcd !important;
 }
 
 .bx--btn--secondary {
-    max-width: 100% !important;
-    max-height: 100% !important;
-    font-size: 1.1rem !important;
-    font-weight: 600 !important;
-    text-align: center !important;
-    color: #747474 !important;
-    background-color: #ffcdcd !important;
-    padding-top: 8px !important;
-    padding-left: 50px !important;
-    padding-right: 50px !important;
-    padding-bottom: 8px !important;
-    border-radius: 10px !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  color: #747474 !important;
+  background-color: #ffcdcd !important;
+  padding-top: 8px !important;
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+  padding-bottom: 8px !important;
+  border-radius: 10px !important;
 }

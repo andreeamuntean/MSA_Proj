@@ -25,8 +25,19 @@ const Login = (props) => {
     API.post("/login", { email: values.email, password: values.password }).then(
       (resp) => {
         console.log(resp);
-        toast.success("Succesfully created an account");
-        props.history.push("./login");
+        props.history.push("./games");
+        if (resp.status === 404) {
+          toast.error("User not found");
+          return;
+        }
+        if (resp.status === 406) {
+          toast.error("Incorrect password");
+          return;
+        }
+        toast.success("Succesfully logged in");
+        console.log(resp);
+        localStorage.setItem("token", resp.token);
+        props.refetch();
       }
     );
   };

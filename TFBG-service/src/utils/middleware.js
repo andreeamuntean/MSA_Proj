@@ -9,6 +9,8 @@ module.exports = {
     authHandler: async (req, res, next) => {
         let auth = req.headers.authorization
 
+        console.log(auth)
+
         if (auth !== undefined) {
             ;[bearer, token] = auth.split(' ')
             let decoded

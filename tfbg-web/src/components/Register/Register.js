@@ -15,19 +15,30 @@ import toast from "../../helpers/toast";
 import styles from "./register.module.scss";
 
 const Register = (props) => {
-  const { control, errors, handleSubmit, setError } = useForm({
+  const { control, handleSubmit, setError } = useForm({
     mode: "all",
     shouldFocusError: true,
     reValidateMode: "onChange",
+  });
+  const [errors, setErrors] = useState({
+    name: { message: "" },
+    password: { message: "" },
+    phone: { message: "" },
+    email: { message: "" },
   });
   const [loading, setLodaing] = useState(false);
 
   const onSubmit = (values, e) => {
     console.log("mare logare", values, e);
-    API.post("/users", { user: values }).then(() => {
-      toast.success("Succesfully created an account");
-      props.history.push("./login");
-    });
+    API.post("/users", { user: values })
+      .then(() => {
+        toast.success("Succesfully created an account");
+        props.history.push("./login");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Something went wrong");
+      });
   };
 
   const history = useHistory();
@@ -66,8 +77,8 @@ const Register = (props) => {
               placeholder="Name ..."
               size="lg"
               labelText=""
-              invalidText={errors ? errors.name.message : ""}
-              invalid={errors ? !!errors : false}
+              invalidText={errors.name ? errors.name.message : ""}
+              invalid={errors.name ? !!errors.name.message : false}
             />
           )}
         />
@@ -76,7 +87,13 @@ const Register = (props) => {
         <Controller
           name="email"
           defaultValue=""
-          rules={{ required: isEmpty() }}
+          rules={{
+            required: isEmpty(),
+            validate: (value) => {
+              if (validator.isEmail(value)) return true;
+              return "Invalid email";
+            },
+          }}
           control={control}
           render={({ field: { onChange } }) => (
             <TextInput
@@ -85,8 +102,8 @@ const Register = (props) => {
               placeholder="Email ..."
               size="lg"
               labelText=""
-              invalidText={errors ? errors.email.message : ""}
-              invalid={errors ? !!errors.email : false}
+              invalidText={errors.email ? errors.email.message : ""}
+              invalid={errors.email ? !!errors.email.message : false}
             />
           )}
         />
@@ -105,8 +122,8 @@ const Register = (props) => {
               placeholder="Password ..."
               size="lg"
               labelText=""
-              invalidText={errors ? errors.password.message : ""}
-              invalid={errors ? !!errors.password : false}
+              invalidText={errors.password ? errors.password.message : ""}
+              invalid={errors.password ? !!errors.password.message : false}
             />
           )}
         />
@@ -115,7 +132,13 @@ const Register = (props) => {
         <Controller
           name="phone"
           defaultValue=""
-          rules={{ required: isEmpty() }}
+          rules={{
+            required: isEmpty(),
+            validate: (value) => {
+              if (validator.isNumeric(value)) return true;
+              return "Invalid phone number";
+            },
+          }}
           control={control}
           render={({ field: { onChange } }) => (
             <TextInput
@@ -124,8 +147,8 @@ const Register = (props) => {
               placeholder="Phone ..."
               size="lg"
               labelText=""
-              invalidText={errors ? errors.phone.message : ""}
-              invalid={errors ? !!errors.phone : false}
+              invalidText={errors.phone ? errors.phone.message : ""}
+              invalid={errors.phone ? !!errors.phone.message : false}
             />
           )}
         />
@@ -135,9 +158,7 @@ const Register = (props) => {
           <Button
             kind="secondary"
             onClick={handleSubmit(onSubmit, (errors) => {
-              Object.keys(errors).forEach((key) => {
-                setError(key, errors[key]);
-              });
+              setErrors(errors);
             })}
             isExpressive
           >
