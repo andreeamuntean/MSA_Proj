@@ -11,15 +11,13 @@ const bcrypt = require('bcrypt')
 module.exports = {
     login: async (email, password) => {
         let user = await userLogic.getByEmail(email)
-        console.log(user)
         if (!user.length) {
             let error = new Error(INVALID_EMAIL)
             error.status = StatusCodes.NOT_FOUND
 
             return error
         }
-
-        let passwordMatch = await bcrypt.compare(password, user.password)
+        let passwordMatch = await bcrypt.compare(password, user[0].password)
 
         if (!passwordMatch) {
             let error = new Error(INVALID_PASSWORD)

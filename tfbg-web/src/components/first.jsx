@@ -1,6 +1,5 @@
 // import React, { useState } from "react";
 // import { Link } from "react-router-dom";
-// import "./../login-register.css";
 // //import React, { Component } from "react";
 // import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 // import SignUpForm from "./components/sign-up/SignUpForm";

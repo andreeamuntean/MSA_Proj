@@ -5,6 +5,7 @@ import logo from "../../files/logo.png";
 import { TextInput, Button, Loading } from "carbon-components-react";
 import { Controller, useForm } from "react-hook-form";
 import validator from "validator";
+import { useHistory } from "react-router-dom";
 
 import API from "../../helpers/api";
 import toast from "../../helpers/toast";
@@ -24,10 +25,28 @@ const Login = (props) => {
     API.post("/login", { email: values.email, password: values.password }).then(
       (resp) => {
         console.log(resp);
-        toast.success("Succesfully created an account");
-        props.history.push("./login");
+        props.history.push("./games");
+        if (resp.status === 404) {
+          toast.error("User not found");
+          return;
+        }
+        if (resp.status === 406) {
+          toast.error("Incorrect password");
+          return;
+        }
+        toast.success("Succesfully logged in");
+        console.log(resp);
+        localStorage.setItem("token", resp.token);
+        props.refetch();
       }
     );
+  };
+
+  const history = useHistory();
+
+  const routeChangeFirst = () => {
+    let path = "/";
+    history.push(path);
   };
 
   const isEmpty = (value) => {
@@ -39,8 +58,13 @@ const Login = (props) => {
   return (
     <div className={styles.container}>
       <div className={` bx--row`}>
-        <img className={styles.image} src={logo} alt={logo} />
-      </div>
+        <img
+          className={styles.image}
+          src={logo}
+          alt={logo}
+          onClick={routeChangeFirst}
+        />{" "}
+      </div>{" "}
       <div className={`${styles.input} bx--row`}>
         <Controller
           name="email"
@@ -58,8 +82,8 @@ const Login = (props) => {
               invalid={errors ? !!errors : false}
             />
           )}
-        />
-      </div>
+        />{" "}
+      </div>{" "}
       <div className={`${styles.input} bx--row`}>
         <Controller
           name="password"
@@ -68,6 +92,7 @@ const Login = (props) => {
           control={control}
           render={({ field: { onChange } }) => (
             <TextInput
+              type="password"
               onChange={onChange}
               id="login_password"
               placeholder="Password ..."
@@ -77,8 +102,8 @@ const Login = (props) => {
               invalid={errors ? !!errors.password : false}
             />
           )}
-        />
-      </div>
+        />{" "}
+      </div>{" "}
       {!loading ? (
         <div className={styles.button}>
           <Button
@@ -90,14 +115,14 @@ const Login = (props) => {
             })}
             isExpressive
           >
-            Login
-          </Button>
+            Login{" "}
+          </Button>{" "}
         </div>
       ) : (
         <div className="loading-container">
-          <Loading withOverlay={false} />
+          <Loading withOverlay={false} />{" "}
         </div>
-      )}
+      )}{" "}
     </div>
   );
 };
