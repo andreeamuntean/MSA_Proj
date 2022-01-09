@@ -16,6 +16,7 @@ import Activity from "./components/rooms/Activity";
 import Catan from "./components/rooms/Catan";
 import Remi from "./components/rooms/Remi";
 import Uno from "./components/rooms/Uno";
+import AddRoom from "./components/AddRoom/AddRoom";
 
 const instance = axios.create({
   baseURL: "http://localhost:9000",
@@ -53,6 +54,7 @@ const Routing = () => {
             <Route exact path="/" component={FirstPage} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
+            <Route exact path="/rooms/add" component={AddRoom} />
             <Route exact path="/games" component={Games} />
             <Route exact path="/activity" component={Activity} />
             <Route exact path="/catan" component={Catan} />

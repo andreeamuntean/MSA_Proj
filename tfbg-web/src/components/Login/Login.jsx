@@ -63,8 +63,8 @@ const Login = (props) => {
           src={logo}
           alt={logo}
           onClick={routeChangeFirst}
-        />{" "}
-      </div>{" "}
+        />
+      </div>
       <div className={`${styles.input} bx--row`}>
         <Controller
           name="email"
@@ -82,8 +82,8 @@ const Login = (props) => {
               invalid={errors ? !!errors : false}
             />
           )}
-        />{" "}
-      </div>{" "}
+        />
+      </div>
       <div className={`${styles.input} bx--row`}>
         <Controller
           name="password"
@@ -102,8 +102,8 @@ const Login = (props) => {
               invalid={errors ? !!errors.password : false}
             />
           )}
-        />{" "}
-      </div>{" "}
+        />
+      </div>
       {!loading ? (
         <div className={styles.button}>
           <Button
@@ -115,14 +115,14 @@ const Login = (props) => {
             })}
             isExpressive
           >
-            Login{" "}
-          </Button>{" "}
+            Login
+          </Button>
         </div>
       ) : (
         <div className="loading-container">
-          <Loading withOverlay={false} />{" "}
+          <Loading withOverlay={false} />
         </div>
-      )}{" "}
+      )}
     </div>
   );
 };
