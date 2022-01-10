@@ -14,7 +14,7 @@ router
             .getAll({
                 from: Number(req.query.from || 0),
                 limit: Number(req.query.limit || 50),
-                search: req.query.search || undefined
+                filter: req.query.filter || undefined
             })
             .then((response) => {
                 res.json(response)

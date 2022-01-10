@@ -29,10 +29,10 @@ connection()
         app.use(cookieParser())
 
         app.use('/login', authRouter)
-        app.use(authHandler)
-        app.use('/isLogged', (req, resp) => {
-            resp.send(req.auth)
-        })
+        // app.use(authHandler)
+        // app.use('/isLogged', (req, resp) => {
+        //     resp.send(req.auth)
+        // })
 
         app.use('/users', users)
         app.use('/rooms', rooms)

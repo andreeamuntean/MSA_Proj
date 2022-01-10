@@ -21,10 +21,8 @@ const Login = (props) => {
   const [loading, setLodaing] = useState(false);
 
   const onSubmit = (values, e) => {
-    console.log("mare logare", values, e);
     API.post("/login", { email: values.email, password: values.password }).then(
       (resp) => {
-        console.log(resp);
         props.history.push("./games");
         if (resp.status === 404) {
           toast.error("User not found");
@@ -35,13 +33,13 @@ const Login = (props) => {
           return;
         }
         toast.success("Succesfully logged in");
-        console.log(resp);
         localStorage.setItem("token", resp.token);
+        localStorage.setItem("user", resp.user[0].email);
         props.refetch();
       }
     );
   };
-
+  console.log(localStorage.getItem("user"));
   const history = useHistory();
 
   const routeChangeFirst = () => {
@@ -54,7 +52,6 @@ const Login = (props) => {
     return true;
   };
 
-  console.log(errors);
   return (
     <div className={styles.container}>
       <div className={` bx--row`}>
@@ -63,8 +60,8 @@ const Login = (props) => {
           src={logo}
           alt={logo}
           onClick={routeChangeFirst}
-        />{" "}
-      </div>{" "}
+        />
+      </div>
       <div className={`${styles.input} bx--row`}>
         <Controller
           name="email"
@@ -82,8 +79,8 @@ const Login = (props) => {
               invalid={errors ? !!errors : false}
             />
           )}
-        />{" "}
-      </div>{" "}
+        />
+      </div>
       <div className={`${styles.input} bx--row`}>
         <Controller
           name="password"
@@ -102,8 +99,8 @@ const Login = (props) => {
               invalid={errors ? !!errors.password : false}
             />
           )}
-        />{" "}
-      </div>{" "}
+        />
+      </div>
       {!loading ? (
         <div className={styles.button}>
           <Button
@@ -115,14 +112,14 @@ const Login = (props) => {
             })}
             isExpressive
           >
-            Login{" "}
-          </Button>{" "}
+            Login
+          </Button>
         </div>
       ) : (
         <div className="loading-container">
-          <Loading withOverlay={false} />{" "}
+          <Loading withOverlay={false} />
         </div>
-      )}{" "}
+      )}
     </div>
   );
 };

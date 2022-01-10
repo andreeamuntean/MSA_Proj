@@ -16,11 +16,10 @@ const RoomSchema = Schema({
         }
     ],
     description: String,
-    game: {
-        type: Schema.Types.ObjectId,
-        ref: CONSTANTS.DATABASE.COLLECTIONS.GAMES
-    },
-    scheduleDate: Date,
+    game: String,
+    scheduleDate: String,
+    hour: String,
+    location: String,
     joinRequest: Array
 })
 

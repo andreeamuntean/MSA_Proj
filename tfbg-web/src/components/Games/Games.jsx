@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import styles from "./games.module.scss";
 
 import catan from "../../files/catan.png";
@@ -12,22 +13,22 @@ const Games = (props) => {
   const history = useHistory();
 
   const routeChangeActivity = () => {
-    let path = "/activity";
+    let path = "/games/activity/";
     history.push(path);
   };
 
   const routeChangeCatan = () => {
-    let path = "/catan";
+    let path = "/games/catan";
     history.push(path);
   };
 
   const routeChangeRemi = () => {
-    let path = "/remi";
+    let path = "/games/remi";
     history.push(path);
   };
 
   const routeChangeUno = () => {
-    let path = "/uno";
+    let path = "/games/uno";
     history.push(path);
   };
 
@@ -75,4 +76,4 @@ const Games = (props) => {
   );
 };
 
-export default Games;
+export default withRouter(Games);
