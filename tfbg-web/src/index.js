@@ -57,18 +57,7 @@ const Routing = () => {
           </Switch>
         ) : (
           <Switch>
-            <Route
-              exact
-              path="/"
-              component={(props) => (
-                <Login
-                  {...props}
-                  refetch={() => {
-                    checkIsLogged();
-                  }}
-                />
-              )}
-            />
+            <Route exact path="/" component={FirstPage} />
             <Route exact path="/register" component={Register} />
             <Route
               exact
