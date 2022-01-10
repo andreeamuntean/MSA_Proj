@@ -21,10 +21,8 @@ const Login = (props) => {
   const [loading, setLodaing] = useState(false);
 
   const onSubmit = (values, e) => {
-    console.log("mare logare", values, e);
     API.post("/login", { email: values.email, password: values.password }).then(
       (resp) => {
-        console.log(resp);
         props.history.push("./games");
         if (resp.status === 404) {
           toast.error("User not found");
@@ -35,13 +33,13 @@ const Login = (props) => {
           return;
         }
         toast.success("Succesfully logged in");
-        console.log(resp);
         localStorage.setItem("token", resp.token);
+        localStorage.setItem("user", resp.user[0].email);
         props.refetch();
       }
     );
   };
-
+  console.log(localStorage.getItem("user"));
   const history = useHistory();
 
   const routeChangeFirst = () => {
@@ -54,7 +52,6 @@ const Login = (props) => {
     return true;
   };
 
-  console.log(errors);
   return (
     <div className={styles.container}>
       <div className={` bx--row`}>

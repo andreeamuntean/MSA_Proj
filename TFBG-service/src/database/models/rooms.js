@@ -17,7 +17,8 @@ const RoomSchema = Schema({
     ],
     description: String,
     game: String,
-    scheduleDate: Date,
+    scheduleDate: String,
+    hour: String,
     location: String,
     joinRequest: Array
 })

@@ -12,9 +12,17 @@
   height: 400px;
 }
 
+.title {
+  padding-top: 128px;
+  padding-bottom: 64px;
+  @include carbon--type-style("productive-heading-06");
+  color: #ffbfbf;
+}
+
 .box {
   background-color: #ffbfbf;
   padding: 32px;
+  border-radius: 16px;
 }
 
 .button {
